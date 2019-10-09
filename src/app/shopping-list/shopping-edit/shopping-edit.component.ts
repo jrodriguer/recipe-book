@@ -1,8 +1,8 @@
-import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 import { Ingredient } from "../../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list.service";
-import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-shopping-edit",
@@ -10,7 +10,6 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./shopping-edit.component.css"]
 })
 export class ShoppingEditComponent implements OnInit {
-
   constructor(private slService: ShoppingListService) {}
 
   ngOnInit() {}
