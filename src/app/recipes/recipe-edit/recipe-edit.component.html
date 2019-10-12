@@ -63,11 +63,12 @@
         -->
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
+          <!-- 
+            each control will be our row  
+          -->
           <div
             class="row"
-            *ngFor="
-              let ingredientContrl of recipeForm.get('ingredients').controls; let i = index
-            "
+            *ngFor="let ingredientContrl of getControls(); let i = index"
             [formGroupName]="i"
           >
             <div class="col-xs-8">
@@ -75,7 +76,11 @@
             </div>
 
             <div class="col-xs-2">
-              <input type="number" formControlName="amount" class="form-control" />
+              <input
+                type="number"
+                formControlName="amount"
+                class="form-control"
+              />
             </div>
 
             <div class="col-xs-2">
