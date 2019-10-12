@@ -4,6 +4,7 @@ import { Subscription } from "rxjs";
 
 import { Ingredient } from "../../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list.service";
+import { extractDirectiveDef } from "@angular/core/src/render3/definition";
 
 @Component({
   selector: "app-shopping-edit",
@@ -47,6 +48,12 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   onClear() {
     this.slForm.reset();
     this.editMode = false;
+  }
+
+  onDelete() {
+    this.slService.deleteIngredient(this.editedItemIndex);
+    this.onClear();
+
   }
 
   ngOnDestroy(): void {
