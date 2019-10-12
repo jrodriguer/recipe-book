@@ -24,6 +24,12 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     );
   }
 
+  /**
+   * Issue new value.
+   *
+   * @param {number} index
+   * @memberof ShoppingListComponent
+   */
   onEditItem(index: number) {
     this.slService.startEditing.next(index);
   }

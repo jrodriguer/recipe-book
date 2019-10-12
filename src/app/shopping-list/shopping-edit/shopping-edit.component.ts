@@ -21,7 +21,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subs = this.slService.startEditing.subscribe((index: number) => {
-      // Activarse cada vez que enviemos la información de edición
+      // Activate each time we send the editing information
       this.editedItemIndex = index;
       this.editMode = true;
       this.editedItem = this.slService.getIngredient(index);
@@ -32,12 +32,21 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     });
   }
 
-  onAddItem(form: NgForm) {
-    const value = form.value; // Get the form value
+  onSubmit(form: NgForm) {
+    const value = form.value; // get form value
     const newIngredient = new Ingredient(value.name, value.amount);
     if (this.editMode)
       this.slService.updateIngredient(this.editedItemIndex, newIngredient);
     else this.slService.addIngredient(newIngredient);
+
+    this.editMode = false;
+
+    form.reset();
+  }
+
+  onClear() {
+    this.slForm.reset();
+    this.editMode = false;
   }
 
   ngOnDestroy(): void {
