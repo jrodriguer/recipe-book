@@ -27,6 +27,19 @@ export class RecipeEditComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    console.log(this.recipeForm);
+  }
+
+  onAddIngr() {
+    (<FormArray>this.recipeForm.get("ingredients")).push(
+      new FormGroup({
+        name: new FormControl(),
+        amount: new FormControl()
+      })
+    );
+  }
+
   /**
    * Initialice Reactive Form of New recipe .
    *
@@ -72,9 +85,5 @@ export class RecipeEditComponent implements OnInit {
 
   getControls() {
     return (<FormArray>this.recipeForm.get("ingredients")).controls;
-  }
-
-  onSubmit() {
-    console.log(this.recipeForm);
   }
 }
