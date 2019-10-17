@@ -16,8 +16,8 @@
         </div>
       </div>
 
-      <!-- 
-        Enter photo and description and see previous result 
+      <!--
+        Enter photo and description and see previous result
       -->
 
       <div class="row">
@@ -37,18 +37,25 @@
         <div class="col-xs-12">
           <div class="form-group">
             <label for="imagePath"></label>
+            <!--
+              Add local reference to that entry to access the input
+            -->
             <input
               type="text"
               id="imagePath"
               formControlName="imagePath"
               class="form-control"
+              #imagePath
             />
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" class="img-responsive" />
+          <!--
+            Link the source to that local reference
+          -->
+          <img [src]="imagePath.value" class="img-responsive" />
         </div>
       </div>
 
@@ -66,13 +73,13 @@
           </div>
         </div>
       </div>
-      <!-- 
+      <!--
           Variety of controls and manage them
         -->
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
-          <!-- 
-            each control will be our row  
+          <!--
+            each control will be our row
           -->
           <div
             class="row"
