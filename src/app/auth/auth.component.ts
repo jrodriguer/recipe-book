@@ -4,4 +4,10 @@ import { Component } from "@angular/core";
     selector: "app-auth",
     templateUrl: "./auth.component.html"
 })
-export class AuthComponent {}
+export class AuthComponent {
+    public isLoginMode = true; // alternate to login and rgister
+
+    onSwitchMode(): void {
+        this.isLoginMode = !this.isLoginMode;
+    }
+}
