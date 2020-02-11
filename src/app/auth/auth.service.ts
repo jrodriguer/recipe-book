@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 interface AuthResponseData {
     kind: string;
@@ -13,9 +14,9 @@ interface AuthResponseData {
 export class AuthService {
     constructor(private http: HttpClient) {}
 
-    signUp(email: string, password: string) {
-        this.http.post<AuthResponseData>(
-            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[AIzaSyB0V4q7fRyp_Vs8MpykxGPoZGS3WmVdsVg]',
+    signUp(email: string, password: string): Observable<AuthResponseData> {
+        return this.http.post<AuthResponseData>(
+            'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyB0V4q7fRyp_Vs8MpykxGPoZGS3WmVdsVg',
             {
                 email: email,
                 password: password,
