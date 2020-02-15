@@ -9,6 +9,8 @@ import { AuthService } from './auth.service';
 })
 export class AuthComponent {
     public isLoginMode = true; // alternate to login and rgister
+    public isLoading = false;
+    public error: string = null;
 
     constructor(private authSrv: AuthService) {}
 
@@ -20,14 +22,17 @@ export class AuthComponent {
         const email = form.value.email;
         const pw = form.value.password;
         if (!form.valid) {
-            // return;
+            return;
         } else {
             this.authSrv.signUp(email, pw).subscribe(
                 resData => {
                     console.log(resData);
+                    this.isLoading = true;
                 },
-                error => {
-                    console.log(error);
+                err => {
+                    console.log(err);
+                    this.error = 'An error occurred';
+                    this.isLoading = false;
                 },
             );
         }

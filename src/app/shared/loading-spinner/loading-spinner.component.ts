@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-loading-spinner',
-    templateUrl: '<div class="loader">Loading...</div>',
-    styleUrls: ['./app.component.css'],
+    template: '<div class="lds-dual-ring"></div>',
+    styleUrls: ['./loading-spinner.component.css'],
 })
-export class LoadingSpinner {}
+export class LoadingSpinnerComponent {}
