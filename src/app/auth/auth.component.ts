@@ -1,11 +1,11 @@
-import { Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
-import { AuthService } from "./auth.service";
+import { AuthService } from './auth.service';
 
 @Component({
-    selector: "app-auth",
-    templateUrl: "./auth.component.html"
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
 })
 export class AuthComponent {
     public isLoginMode = true; // alternate to login and rgister
@@ -22,21 +22,20 @@ export class AuthComponent {
         const email = form.value.email;
         const pw = form.value.password;
         if (!form.valid) {
-            return;
+            // return;
         } else {
             this.authSrv.signUp(email, pw).subscribe(
                 resData => {
                     console.log(resData);
-                    this.isLoading = true;
+                    this.isLoading = false;
                 },
                 errMessg => {
                     console.log(errMessg);
                     this.error = errMessg;
                     this.isLoading = false;
-                }
+                },
             );
         }
-
         form.reset();
     }
 }
