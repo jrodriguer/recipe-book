@@ -21,8 +21,10 @@ export class AuthComponent {
     onSubmit(form: NgForm): void {
         const email = form.value.email;
         const pw = form.value.password;
+
+        this.isLoading = true;
         if (!form.valid) {
-            // return;
+            return;
         } else {
             this.authSrv.signUp(email, pw).subscribe(
                 resData => {
