@@ -19,7 +19,7 @@ export class AuthComponent {
         this.isLoginMode = !this.isLoginMode;
     }
 
-    onSubmit(form: NgForm) {
+    onSubmit(form: NgForm): void {
         const email = form.value.email;
         const pw = form.value.password;
 

@@ -45,7 +45,7 @@ export class AuthService {
         );
     }
 
-    signIn(email: string, pw: string) {
+    signIn(email: string, pw: string): Observable<AuthResponseData> {
         return this.http.post<AuthResponseData>(
             'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB0V4q7fRyp_Vs8MpykxGPoZGS3WmVdsVg',
             {
