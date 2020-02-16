@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
-import { AuthService } from './auth.service';
+import { AuthService } from "./auth.service";
 
 @Component({
-    selector: 'app-auth',
-    templateUrl: './auth.component.html',
+    selector: "app-auth",
+    templateUrl: "./auth.component.html"
 })
 export class AuthComponent {
     public isLoginMode = true; // alternate to login and rgister
@@ -29,11 +29,11 @@ export class AuthComponent {
                     console.log(resData);
                     this.isLoading = true;
                 },
-                err => {
-                    console.log(err);
-                    this.error = 'An error occurred';
+                errMessg => {
+                    console.log(errMessg);
+                    this.error = errMessg;
                     this.isLoading = false;
-                },
+                }
             );
         }
 
