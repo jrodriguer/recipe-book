@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
-import { AuthService, AuthResponseData } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable } from "rxjs";
+
+import { AuthService, AuthResponseData } from "./auth.service";
 
 @Component({
-    selector: 'app-auth',
-    templateUrl: './auth.component.html',
+    selector: "app-auth",
+    templateUrl: "./auth.component.html"
 })
 export class AuthComponent {
     public isLoginMode = true; // alternate to login and rgister
@@ -42,7 +43,7 @@ export class AuthComponent {
                 console.log(errMessg);
                 this.error = errMessg;
                 this.isLoading = false;
-            },
+            }
         );
 
         form.reset();
