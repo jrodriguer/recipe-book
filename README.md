@@ -1,4 +1,4 @@
-# prj-udemy-Angular8 -- Recipe Book
+# prj-Angular8 -- Recipe Book
 
-Recipe Book! Create and save all your recipes 
+Create and save all your recipes 
 
