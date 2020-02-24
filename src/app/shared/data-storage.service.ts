@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Subscription } from "rxjs";
-import { map, tap } from "rxjs/operators";
+import { Subscription } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 
-import { RecipeService } from "../recipes/recipe.service";
-import { Recipe } from "../recipes/recipe.model";
+import { RecipeService } from '../recipes/recipe.service';
+import { Recipe } from '../recipes/recipe.model';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class DataStorageService {
     constructor(private http: HttpClient, private recipeSrv: RecipeService) {}
 
@@ -15,8 +15,8 @@ export class DataStorageService {
         const recipes = this.recipeSrv.getRecipes();
         return this.http
             .put(
-                "https://ng-project-recipesfood.firebaseio.com/recipes.json",
-                recipes
+                'https://ng-project-recipesfood.firebaseio.com/recipes.json',
+                recipes,
             )
             .subscribe(resp => {
                 console.log(resp);
@@ -24,9 +24,10 @@ export class DataStorageService {
     }
 
     fetchRecipes() {
+        // Interceptor atack in here
         return this.http
             .get<Recipe[]>(
-                "https://ng-project-recipesfood.firebaseio.com/recipes.json"
+                'https://ng-project-recipesfood.firebaseio.com/recipes.json',
             )
             .pipe(
                 map(recipes => {
@@ -35,13 +36,13 @@ export class DataStorageService {
                             ...recipe,
                             ingredients: recipe.ingredients
                                 ? recipe.ingredients
-                                : []
+                                : [],
                         };
                     });
                 }),
                 tap(recipes => {
                     this.recipeSrv.setRecipes(recipes);
-                })
+                }),
             );
     }
 }
