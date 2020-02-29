@@ -68,6 +68,14 @@ export class AuthService {
             );
     }
 
+    autoLogin() {
+        const userData = localStorage.getItem('userData');
+        if (!userData) {
+            return;
+        } else {
+        }
+    }
+
     logout() {
         this.user.next(null);
     }
@@ -86,6 +94,7 @@ export class AuthService {
         );
         const user = new User(email, userId, token, expirationDate);
         this.user.next(user);
+        localStorage.setItem('userData', JSON.stringify(user));
     }
 
     private handleError(errRes: HttpErrorResponse): Observable<never> {
