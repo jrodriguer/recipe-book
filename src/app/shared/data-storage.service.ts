@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { RecipeService } from '../recipes/recipe.service';
-import { Recipe } from '../recipes/recipe.model';
+import { RecipeService } from '../pages/recipes/recipe.service';
+import { Recipe } from '../pages/recipes/recipe.model';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {

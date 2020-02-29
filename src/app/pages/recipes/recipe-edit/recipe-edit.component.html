@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button
+                        type="submit"
+                        class="btn btn-success"
+                        [disabled]="!recipeForm.valid"
+                    >
+                        Save
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="onCancel()"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </div>
+
+            <!--
+        Enter photo and description and see previous result
+      -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name"></label>
+                        <input
+                            type="text"
+                            id="name"
+                            formControlName="name"
+                            class="form-control"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="imagePath"></label>
+                        <!--
+              Add local reference to that entry to access the input
+            -->
+                        <input
+                            type="text"
+                            id="imagePath"
+                            formControlName="imagePath"
+                            class="form-control"
+                            #imagePath
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <!--
+            Link the source to that local reference
+          -->
+                    <img [src]="imagePath.value" class="img-responsive" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea
+                            type="text"
+                            id="description"
+                            formControlName="description"
+                            class="form-control"
+                            rows="6"
+                        ></textarea>
+                    </div>
+                </div>
+            </div>
+            <!--
+          Variety of controls and manage them
+        -->
+            <div class="row">
+                <div class="col-xs-12" formArrayName="ingredients">
+                    <!--
+            each control will be our row
+          -->
+                    <div
+                        class="row"
+                        *ngFor="
+                            let ingredientContrl of getControls();
+                            let i = index
+                        "
+                        [formGroupName]="i"
+                        style="margin-top: 10px;"
+                    >
+                        <div class="col-xs-8">
+                            <input
+                                type="text"
+                                formControlName="name"
+                                class="form-control"
+                            />
+                        </div>
+
+                        <div class="col-xs-2">
+                            <input
+                                type="number"
+                                formControlName="amount"
+                                class="form-control"
+                            />
+                        </div>
+
+                        <div class="col-xs-2">
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                (click)="onDeleteIngr(i)"
+                            >
+                                X
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button
+                                type="button"
+                                class="btn btn-success"
+                                (click)="onAddIngr()"
+                            >
+                                Add ingredient
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
