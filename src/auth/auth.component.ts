@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 
-import { AuthService, AuthResponseData } from './auth.service';
+import { AuthService } from './auth.service';
+import { AuthResponseData } from 'src/models/auth-model.temp';
 
 @Component({
     selector: 'app-auth',
