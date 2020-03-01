@@ -5,7 +5,7 @@ import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { User } from './user.model';
-import { AuthResponseData } from 'src/models/auth-model';
+import { AuthResponseData } from 'src/models/auth-model.temp';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
