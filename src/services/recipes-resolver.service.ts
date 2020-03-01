@@ -5,14 +5,19 @@ import {
     RouterStateSnapshot,
 } from '@angular/router';
 
-import { Recipe } from './recipe.model';
-import { DataStorageService } from '../../shared/data-storage.service';
+import { Observable } from 'rxjs';
+
+import { Recipe } from '../models/recipe.model';
+import { DataStorageService } from './data-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesResolveService implements Resolve<Recipe[]> {
     constructor(private dataStorageSrvc: DataStorageService) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    resolve(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot,
+    ): Observable<any> {
         /*
             Return set of recipes,
             need to load it first.

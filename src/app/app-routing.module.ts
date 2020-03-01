@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RecipesComponent } from './pages/recipes/recipes.component';
-import { ShoppingListComponent } from './pages/shopping-list/shopping-list.component';
-import { RecipeStartComponent } from './pages/recipes/recipe-start/recipe-start.component';
-import { RecipeDetailComponent } from './pages/recipes/recipe-detail/recipe-detail.component';
-import { RecipeEditComponent } from './pages/recipes/recipe-edit/recipe-edit.component';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from '../auth/auth.component';
+import { RecipesComponent } from 'src/pages/recipes/recipes.component';
+import { RecipeStartComponent } from 'src/pages/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from 'src/pages/recipes/recipe-edit/recipe-edit.component';
+import { RecipeDetailComponent } from 'src/pages/recipes/recipe-detail/recipe-detail.component';
+import { ShoppingListComponent } from 'src/pages/shopping-list/shopping-list.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },

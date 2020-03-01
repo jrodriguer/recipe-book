@@ -1,30 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { Recipe } from './recipe.model';
-import { Ingredient } from '../../shared/ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
+import { Recipe } from '../models/recipe.model';
+import { Ingredient } from '../models/ingredient.model';
+import { ShoppingListService } from './shopping-list.service';
 import { Subject } from 'rxjs';
 
 @Injectable()
 export class RecipeService {
-    // Same shopping-list.service.ts
-
     public recipesChanged = new Subject<Recipe[]>(); // variety of recipes as a value
-
-    // private recipes: Recipe[] = [
-    //     new Recipe(
-    //         'Tasty Schnitzel',
-    //         'A super-tasty Schnitzel - just awesome!',
-    //         'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
-    //         [new Ingredient('Meat', 1), new Ingredient('French Fries', 20)],
-    //     ),
-    //     new Recipe(
-    //         'Big Fat Burger',
-    //         'What else you need to say?',
-    //         'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
-    //         [new Ingredient('Buns', 2), new Ingredient('Meat', 1)],
-    //     ),
-    // ];
     private recipes: Recipe[] = [];
 
     constructor(private slService: ShoppingListService) {}
@@ -34,11 +17,11 @@ export class RecipeService {
         this.recipesChanged.next(this.recipes.slice());
     }
 
-    getRecipes() {
+    getRecipes(): Recipe[] {
         return this.recipes.slice();
     }
 
-    getRecipe(index: number) {
+    getRecipe(index: number): Recipe {
         return this.recipes[index];
     }
 

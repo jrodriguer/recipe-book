@@ -1,14 +1,14 @@
-import { Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
-import { AuthService, AuthResponseData } from "./auth.service";
+import { AuthService, AuthResponseData } from './auth.service';
 
 @Component({
-    selector: "app-auth",
-    templateUrl: "./auth.component.html"
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
 })
 export class AuthComponent {
     public isLoginMode = true; // alternate to login and rgister
@@ -39,13 +39,13 @@ export class AuthComponent {
             resData => {
                 console.log(resData);
                 this.isLoading = false;
-                this.router.navigate(["/recipes"]);
+                this.router.navigate(['/recipes']);
             },
             errMessg => {
                 console.log(errMessg);
                 this.error = errMessg;
                 this.isLoading = false;
-            }
+            },
         );
 
         form.reset();
