@@ -8,9 +8,10 @@ import {
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-
-import { AuthService, AuthResponseData } from './auth.service';
 import { take, exhaustMap } from 'rxjs/operators';
+
+import { AuthService } from './auth.service';
+import { AuthResponseData } from 'src/models/auth-model';
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
