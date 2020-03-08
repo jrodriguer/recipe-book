@@ -18,11 +18,11 @@ export class AuthComponent {
 
     constructor(private authSrv: AuthService, private router: Router) {}
 
-    onSwitchMode(): void {
+    onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;
     }
 
-    onSubmit(form: NgForm): void {
+    onSubmit(form: NgForm) {
         const email = form.value.email;
         const pw = form.value.password;
 
@@ -48,5 +48,9 @@ export class AuthComponent {
         );
 
         form.reset();
+    }
+
+    onError() {
+        this.error = null;
     }
 }
