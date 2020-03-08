@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 import { AuthService } from './auth.service';
 import { AuthResponseData } from 'src/models/auth-model.temp';
+import { AlertComponent } from 'src/shared/alert/alert.component';
 
 @Component({
     selector: 'app-auth',
@@ -16,7 +17,11 @@ export class AuthComponent {
     public isLoading = false;
     public error: string = null;
 
-    constructor(private authSrv: AuthService, private router: Router) {}
+    constructor(
+        private authSrv: AuthService,
+        private router: Router,
+        private componentFactoryResolver: ComponentFactoryResolver,
+    ) {}
 
     onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;
@@ -52,5 +57,11 @@ export class AuthComponent {
 
     onError() {
         this.error = null;
+    }
+
+    private showErrorAlert() {
+        const alertFactory = this.componentFactoryResolver.resolveComponentFactory(
+            AlertComponent,
+        );
     }
 }

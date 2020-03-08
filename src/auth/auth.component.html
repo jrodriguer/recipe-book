@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
         <app-alert [msg]="error" *ngIf="error" (close)="onError()"></app-alert>
+        <!-- <div #addHere></div> -->
         <div *ngIf="isLoading" style="text-align: center;">
             <app-loading-spinner></app-loading-spinner>
         </div>
