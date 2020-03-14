@@ -58,5 +58,6 @@ import { PlaceholderDirective } from 'src/shared/placeholder/placeholder.directi
         },
     ],
     bootstrap: [AppComponent],
+    entryComponents: [AlertComponent],
 })
 export class AppModule {}

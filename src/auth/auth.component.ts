@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { AuthResponseData } from 'src/models/auth-model.temp';
 import { AlertComponent } from 'src/shared/alert/alert.component';
+import { PlaceholderDirective } from 'src/shared/placeholder/placeholder.directive';
 
 @Component({
     selector: 'app-auth',
@@ -16,6 +17,8 @@ export class AuthComponent {
     public isLoginMode = true; // alternate to login and rgister
     public isLoading = false;
     public error: string = null;
+
+    @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
 
     constructor(
         private authSrv: AuthService,
@@ -49,9 +52,9 @@ export class AuthComponent {
             errMessg => {
                 this.error = errMessg;
                 this.isLoading = false;
+                this.showErrorAlert(this.error);
             },
         );
-
         form.reset();
     }
 
@@ -59,9 +62,15 @@ export class AuthComponent {
         this.error = null;
     }
 
-    private showErrorAlert() {
+    private showErrorAlert(message: string) {
         const alertFactory = this.componentFactoryResolver.resolveComponentFactory(
             AlertComponent,
         );
+        const hostViewContainerRef = this.alertHost.viewContainerRef;
+
+        console.log({ hostViewContainerRef });
+
+        hostViewContainerRef.clear();
+        hostViewContainerRef.createComponent(alertFactory);
     }
 }
