@@ -13,17 +13,15 @@ import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinn
 import { AlertComponent } from 'src/shared/alert/alert.component';
 import { PlaceholderDirective } from 'src/shared/placeholder/placeholder.directive';
 import { AuthInterceptorService } from '../auth/auth-interceptor.service';
-import { ShoppingListComponent } from 'src/pages/shopping-list/shopping-list.component';
-import { ShoppingEditComponent } from 'src/pages/shopping-list/shopping-edit/shopping-edit.component';
 import { AppRoutingModule } from './app-routing.module';
+
 import { RecipesModule } from 'src/pages/recipes/recipes .module';
+import { ShoppingListModule } from 'src/pages/shopping-list/shoping-list.module';
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
-        ShoppingListComponent,
-        ShoppingEditComponent,
         DropdownDirective,
         AuthComponent,
         LoadingSpinnerComponent,
@@ -37,6 +35,7 @@ import { RecipesModule } from 'src/pages/recipes/recipes .module';
         HttpClientModule,
         AppRoutingModule,
         RecipesModule,
+        ShoppingListModule,
     ],
     providers: [
         ShoppingListService,
