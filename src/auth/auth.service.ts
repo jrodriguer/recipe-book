@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { User } from '../auth/user.model';
+import { User } from './user.model';
 import { AuthResponseData } from 'src/models/auth-model.temp';
 
 @Injectable({ providedIn: 'root' })
@@ -103,9 +103,16 @@ export class AuthService {
         }, expiration);
     }
 
-    /*
-        Create new user and log in
-    */
+    /**
+     * Create new user and log in
+     *
+     * @private
+     * @param {string} email
+     * @param {string} userId
+     * @param {string} token
+     * @param {number} expiresIn
+     * @memberof AuthService
+     */
     private handleAuth(
         email: string,
         userId: string,

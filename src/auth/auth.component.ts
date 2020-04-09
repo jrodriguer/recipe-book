@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 import { Observable, Subscription } from 'rxjs';
 
-import { AuthService } from '../services/auth.service';
+import { AuthService } from './auth.service';
 import { AuthResponseData } from 'src/models/auth-model.temp';
 import { AlertComponent } from 'src/shared/alert/alert.component';
 import { PlaceholderDirective } from 'src/shared/placeholder/placeholder.directive';
@@ -53,6 +53,8 @@ export class AuthComponent implements OnDestroy {
 
         authObs.subscribe(
             resData => {
+                console.log(resData);
+
                 this.isLoading = false;
                 this.router.navigate(['/recipes']);
             },
