@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 import { Observable, Subscription } from 'rxjs';
 
-import { AuthService } from './auth.service';
+import { AuthService } from '../services/auth.service';
 import { AuthResponseData } from 'src/models/auth-model.temp';
 import { AlertComponent } from 'src/shared/alert/alert.component';
 import { PlaceholderDirective } from 'src/shared/placeholder/placeholder.directive';

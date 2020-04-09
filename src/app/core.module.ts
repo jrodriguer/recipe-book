@@ -3,7 +3,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ShoppingListService } from 'src/services/shopping-list.service';
 import { RecipeService } from 'src/services/recipe.service';
-import { AuthInterceptorService } from 'src/auth/auth-interceptor.service';
+import { AuthInterceptorService } from 'src/services/auth-interceptor.service';
 
 @NgModule({
     providers: [
