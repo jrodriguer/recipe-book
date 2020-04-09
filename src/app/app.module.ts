@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipesModule } from 'src/pages/recipes/recipes.module';
 import { ShoppingListModule } from 'src/pages/shopping-list/shoping-list.module';
 import { SharedModule } from 'src/shared/shared.module';
+import { CoreModule } from './core.module';
 
 @NgModule({
     declarations: [AppComponent, HeaderComponent, AuthComponent],
@@ -23,6 +24,7 @@ import { SharedModule } from 'src/shared/shared.module';
         SharedModule,
         RecipesModule,
         ShoppingListModule,
+        CoreModule,
     ],
     bootstrap: [AppComponent],
 })
