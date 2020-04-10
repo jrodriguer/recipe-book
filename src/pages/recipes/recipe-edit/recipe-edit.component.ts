@@ -54,6 +54,8 @@ export class RecipeEditComponent implements OnInit {
      * Get access to the recipe form
      * and thereby get access to my ingredients.
      *
+     * @param {number} index
+     * @memberof RecipeEditComponent
      */
     onDeleteIngr(index: number) {
         (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
