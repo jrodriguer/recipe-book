@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
-import { User } from './user.model';
+import { User } from '../models/user.model';
 import { AuthResponseData } from 'src/models/auth-model.temp';
 import { environment } from '../environments/environment';
 
