@@ -1,5 +1,3 @@
-# Recipe-Book project
-
-Practicing :turtle: with Angular.
+# Recipe-Book project:turtle:
 
 Case study of the framework, belonging to the Udemy platform.
