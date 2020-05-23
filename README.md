@@ -1,3 +1,3 @@
-# Recipe-Book project :turtle:
+# Recipe-Book :turtle:
 
 Case study of the framework, belonging to the Udemy platform.
