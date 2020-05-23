@@ -11,8 +11,8 @@ import { Observable, Subscription } from 'rxjs';
 
 import { AuthService } from './auth.service';
 import { AuthResponseData } from 'src/models/auth-model.temp';
-import { AlertComponent } from 'src/shared/alert/alert.component';
-import { PlaceholderDirective } from 'src/shared/placeholder/placeholder.directive';
+import { AlertComponent } from 'src/app/shared/alert/alert.component';
+import { PlaceholderDirective } from 'src/app/shared/placeholder/placeholder.directive';
 
 @Component({
     selector: 'app-auth',

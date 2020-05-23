@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 import { RecipeService } from './recipe.service';
-import { Recipe } from '../models/recipe.model';
+import { Recipe } from '../../models/recipe.model';
 
 @Injectable({ providedIn: 'root' })
 export class DataStorageService {

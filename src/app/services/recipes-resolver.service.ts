@@ -7,7 +7,7 @@ import {
 
 import { Observable } from 'rxjs';
 
-import { Recipe } from '../models/recipe.model';
+import { Recipe } from '../../models/recipe.model';
 import { DataStorageService } from './data-storage.service';
 
 @Injectable({ providedIn: 'root' })

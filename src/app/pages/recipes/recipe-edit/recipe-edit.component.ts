@@ -8,7 +8,7 @@ import {
     AbstractControl,
 } from '@angular/forms';
 
-import { RecipeService } from 'src/services/recipe.service';
+import { RecipeService } from 'src/app/services/recipe.service';
 @Component({
     selector: 'app-recipe-edit',
     templateUrl: './recipe-edit.component.html',
