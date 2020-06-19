@@ -1,3 +1,11 @@
-# Recipe-Book :turtle:
+# Recipe Book
 
-Case study of the framework, belonging to the Udemy platform.
+Cookbook and shopping lists website built with [Angular](https://angular.io/).
+
+## Key Features
+- Manage your pefil, save or fetch data.
+- Make your own shopping list.
+
+## Credits
+This software uses the following open source packages:
+- [Angular](https://angular.io/).
