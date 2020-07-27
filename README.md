@@ -10,3 +10,4 @@ Cookbook and shopping lists website built with [Angular](https://angular.io/).
 ## Credits
 This software uses the following open source packages:
 - [Angular](https://angular.io/).
+- [Firebase](https://firebase.google.com/).
