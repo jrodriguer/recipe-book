@@ -9,6 +9,7 @@
     </div>
     <span class="pull-right">
         <img
+            *ngIf="recipe.imagePath"
             [src]="recipe.imagePath"
             alt="{{ recipe.name }}"
             class="img-responsive"
