@@ -3,15 +3,15 @@ import {
     HttpRequest,
     HttpHandler,
     HttpEvent,
-    HttpParams,
-} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+    HttpParams
+} from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
-import { Observable } from 'rxjs';
-import { take, exhaustMap } from 'rxjs/operators';
+import { Observable } from "rxjs";
+import { take, exhaustMap } from "rxjs/operators";
 
-import { AuthService } from './auth.service';
-import { AuthResponseData } from 'src/models/auth-model.temp';
+import { AuthService } from "./auth.service";
+import { AuthResponseData } from "src/models/auth-model.temp";
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
@@ -19,9 +19,9 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     intercept(
         req: HttpRequest<any>,
-        next: HttpHandler,
+        next: HttpHandler
     ): Observable<HttpEvent<AuthResponseData>> {
-        /* 
+        /*
             Do not configure a continuous subscription.
             Manage the subscription, give me the last user and cancel
         */
@@ -36,10 +36,10 @@ export class AuthInterceptorService implements HttpInterceptor {
                     return next.handle(req);
                 }
                 const modifiedReq = req.clone({
-                    params: new HttpParams().set('auth', user.token),
+                    params: new HttpParams().set("auth", user.token)
                 });
                 return next.handle(modifiedReq);
-            }),
+            })
         );
     }
 }
