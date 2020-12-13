@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
+import '@dile/dile-hamburger/dile-hamburger.js';
 
 import { DataStorageService } from '../../services/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
@@ -8,6 +9,7 @@ import { AuthService } from '../../auth/auth.service';
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
     private userSub: Subscription;
