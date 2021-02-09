@@ -1,10 +1,13 @@
 # Recipe Book
-Cookbook and shopping lists website built with [Angular](https://angular.io/).
 
 ## Table of contents
+* [General info](#general-info)
 * [Technologies](#technologies)
 * [Key Features](#key-features)
 * [Credits](#credits)
+
+## General info
+Cookbook and shopping lists website built with [Angular](https://angular.io/).
 
 ## Technologies
 Project is created with:
