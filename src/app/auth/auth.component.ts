@@ -8,11 +8,11 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Observable, Subscription } from 'rxjs';
+import { AuthResponseData } from '../../models/auth-model.temp';
+import { AlertComponent } from '../shared/alert/alert.component';
+import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
 
 import { AuthService } from './auth.service';
-import { AuthResponseData } from 'src/models/auth-model.temp';
-import { AlertComponent } from 'src/app/shared/alert/alert.component';
-import { PlaceholderDirective } from 'src/app/shared/placeholder/placeholder.directive';
 
 @Component({
     selector: 'app-auth',
@@ -31,7 +31,7 @@ export class AuthComponent implements OnDestroy {
         private authSrv: AuthService,
         private router: Router,
         private componentFactoryResolver: ComponentFactoryResolver,
-    ) {}
+    ) { }
 
     onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;

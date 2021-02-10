@@ -1,33 +1,30 @@
 {
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": [ "ES2017" ],
-    "module": "commonjs",
-    "outDir": "./lib",
-    "sourceMap": true,
-    "listFiles": false,
-    "listEmittedFiles": false,
-    "pretty": true,
-    "traceResolution": false,
-    "declaration": true,
-    "alwaysStrict": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "downlevelIteration": true,
-    "typeRoots": [
-      "./node_modules/@my-company/ts-build-tools/node_modules/@types",
-      "./node_modules/@types"
+    "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["ES2017"],
+        "module": "commonjs",
+        "outDir": "./lib",
+        "sourceMap": true,
+        "listFiles": false,
+        "listEmittedFiles": false,
+        "pretty": true,
+        "traceResolution": false,
+        "declaration": true,
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "downlevelIteration": true,
+        "typeRoots": [
+            "./node_modules/@my-company/ts-build-tools/node_modules/@types",
+            "./node_modules/@types"
+        ],
+        "experimentalDecorators": true
+    },
+    "include": [
+        "./src/**/*.ts",
+        "./typings/**/*.d.ts",
+        "./node_modules/@my-company/ts-build-tools/shared/typings/**/*.d.ts"
     ],
-    "experimentalDecorators": true,
-  },
-  "include": [
-    "./src/**/*.ts",
-    "./typings/**/*.d.ts",
-    "./node_modules/@my-company/ts-build-tools/shared/typings/**/*.d.ts"
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
+    "exclude": ["./node_modules"]
 }
