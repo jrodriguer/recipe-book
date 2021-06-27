@@ -4,7 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
 import { AuthComponent } from "./auth.component";
-import { SharedModule } from "src/app/shared/shared.module";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [AuthComponent],

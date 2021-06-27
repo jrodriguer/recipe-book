@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 import { map, tap } from 'rxjs/operators';
 
 import { RecipeService } from './recipe.service';
@@ -23,7 +23,7 @@ export class DataStorageService {
             });
     }
 
-    fetchRecipes() {
+    fetchRecipes(): any {
         // Interceptor atack in here
         return this.http
             .get<Recipe[]>(
@@ -42,7 +42,7 @@ export class DataStorageService {
                 }),
                 tap(recipes => {
                     this.recipeSrv.setRecipes(recipes);
-                }),
+                })
             );
     }
 }
