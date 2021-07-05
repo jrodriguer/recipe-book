@@ -9,9 +9,6 @@
                 *ngFor="let ingredient of (ingredients | async).ingredients; let i = index"
                 (click)="onEditItem(i)"
             >
-                <!-- 
-                TODO: Obtain identification of the ingr. to replace in the ingr. matrix that is admired in the service
-            -->
                 {{ ingredient.name }} ({{ ingredient.amount }})
             </a>
         </ul>

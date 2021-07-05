@@ -31,7 +31,7 @@ export class AuthComponent implements OnDestroy {
         private authSrv: AuthService,
         private router: Router,
         private componentFactoryResolver: ComponentFactoryResolver,
-    ) { }
+    ) {}
 
     onSwitchMode() {
         this.isLoginMode = !this.isLoginMode;
@@ -53,8 +53,6 @@ export class AuthComponent implements OnDestroy {
 
         authObs.subscribe(
             resData => {
-                console.log(resData);
-
                 this.isLoading = false;
                 this.router.navigate(['/recipes']);
             },

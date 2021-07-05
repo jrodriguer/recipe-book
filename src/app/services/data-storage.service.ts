@@ -18,9 +18,7 @@ export class DataStorageService {
                 'https://ng-project-recipesfood.firebaseio.com/recipes.json',
                 recipes,
             )
-            .subscribe(resp => {
-                console.log(resp);
-            });
+            .subscribe(resp => {});
     }
 
     fetchRecipes(): any {
@@ -42,7 +40,7 @@ export class DataStorageService {
                 }),
                 tap(recipes => {
                     this.recipeSrv.setRecipes(recipes);
-                })
+                }),
             );
     }
 }

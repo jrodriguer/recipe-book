@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Subscription, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Ingredient } from '../../../models/ingredient.model';
 import { ShoppingListService } from '../../services/shopping-list.service';
@@ -15,11 +15,14 @@ export class ShoppingListComponent implements OnInit {
 
     constructor(
         private slService: ShoppingListService,
-        private store: Store<{ shoppigList: { ingredients: Ingredient[] } }>,
+        private store: Store<{ shoppingList: { ingredients: Ingredient[] } }>,
     ) {}
 
     ngOnInit() {
-        this.ingredients = this.store.select('shoppigList');
+        // Get ingredients and react (observer) to changes
+        this.ingredients = this.store.select('shoppingList');
+
+        // this.store.select('shoppingList').subscribe();
     }
 
     /**
