@@ -19,6 +19,7 @@ import { shoppingListReducer } from './pages/shopping-list/store/shopping-list.r
         StoreModule.forRoot({shoppingList: shoppingListReducer}),
         SharedModule,
         CoreModule,
+        StoreModule.forRoot({}, {}),
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
