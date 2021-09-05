@@ -5,14 +5,17 @@ const appRoutes: Routes = [
     { path: "", redirectTo: "/recipes", pathMatch: "full" },
     {
         path: "recipes",
-        loadChildren: "./pages/recipes/recipes.module#RecipesModule"
+        loadChildren: () => import("./pages/recipes/recipes.module").then(
+            (m => m.RecipesModule))
     },
     {
         path: "shopping-list",
-        loadChildren:
-            "./pages/shopping-list/shopping-list.module#ShoppingListModule"
+            loadChildren: () => import("./pages/shopping-list/shopping-list.module").then(
+            (m => m.ShoppingListModule))
     },
-    { path: "auth", loadChildren: "./auth/auth.module#AuthModule" }
+    { path: "auth", loadChildren: () => import( "./auth/auth.module").then(
+            (m => m.AuthModule))
+    }
 ];
 
 @NgModule({
