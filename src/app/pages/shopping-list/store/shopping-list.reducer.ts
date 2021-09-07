@@ -1,8 +1,12 @@
 import { Ingredient } from '../../../../models/ingredient.model';
+import { State } from '../../../../models/store.model';
 import * as ShoppingListActions from './shopping-list.actions';
 
-const initialState = {
+
+const initialState: State = {
     ingredients: [new Ingredient('Apples', 5), new Ingredient('Tomatoes', 10)],
+    editedIngredient: null,
+    editedIngredientIndex: -1
 };
 
 export function shoppingListReducer(
@@ -30,13 +34,10 @@ export function shoppingListReducer(
             };
         case ShoppingListActions.UPDATE_INGREDIENTS:
             const ingredient = state.ingredients[action.payload.index];
-            const updateIngredient = {
-                ...ingredient,
-                ...action.payload.ingredient,
-            };
+            const updateIngredient = { ...ingredient, ...action.payload.ingredient };
             const updateIngredients = [...state.ingredients];
             updateIngredients[action.payload.index] = updateIngredient;
-            
+
             return {
                 ...state,
                 ingredients: updateIngredients,
