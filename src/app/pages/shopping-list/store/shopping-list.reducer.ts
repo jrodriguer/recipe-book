@@ -11,8 +11,8 @@ export function shoppingListReducer(
 ) {
     switch (action.type) {
         /**
-         * 1. Copy state
-         * 2. Overwrite ingredients
+         * 1. Copy existing state
+         * 2. Overwrite ingredients, updating state
          *
          * Work with a new matrix
          * and that new matrix will basically be the old ingredient matrix
@@ -29,16 +29,14 @@ export function shoppingListReducer(
                 ingredients: [...state.ingredients, action.payload],
             };
         case ShoppingListActions.UPDATE_INGREDIENTS:
-            // Get ingredient for edit
             const ingredient = state.ingredients[action.payload.index];
-            //
             const updateIngredient = {
                 ...ingredient,
                 ...action.payload.ingredient,
             };
-
             const updateIngredients = [...state.ingredients];
             updateIngredients[action.payload.index] = updateIngredient;
+            
             return {
                 ...state,
                 ingredients: updateIngredients,

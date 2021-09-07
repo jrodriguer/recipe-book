@@ -10,29 +10,25 @@ export const REMOVE_INGREDIENTS = 'REMOVE_INGREDIENTS';
 export class AddIngredient implements Action {
     readonly type = ADD_INGREDIENT;
 
-    constructor(public payload: Ingredient) {}
+    constructor(public payload: Ingredient) { }
 }
 
 export class AddIngredients implements Action {
     readonly type = ADD_INGREDIENTS;
 
-    constructor(public payload: Ingredient[]) {}
+    constructor(public payload: Ingredient[]) { }
 }
 
 export class UpdateIngredient implements Action {
     readonly type = UPDATE_INGREDIENTS;
 
-    constructor(public payload: { index: number; ingredient: Ingredient }) {}
+    constructor(public payload: { index: number; ingredient: Ingredient }) { }
 }
 
 export class RemoveIngredient implements Action {
     readonly type = REMOVE_INGREDIENTS;
 
-    constructor(public payload: number) {}
+    constructor(public payload: number) { }
 }
 
-export type ShoppingListActions =
-    | AddIngredient
-    | AddIngredients
-    | UpdateIngredient
-    | RemoveIngredient;
+export type ShoppingListActions = | AddIngredient | AddIngredients | UpdateIngredient | RemoveIngredient;
