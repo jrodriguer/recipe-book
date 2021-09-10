@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Ingredient } from '../../../models/ingredient.model';
 import { AppState } from '../../../models/store.model';
 import { ShoppingListService } from '../../services/shopping-list.service';
+import * as ShoppingListActions from '../../pages/shopping-list/store/shopping-list.actions';
 
 
 @Component({
@@ -35,6 +36,6 @@ export class ShoppingListComponent implements OnInit {
      * @memberof ShoppingListComponent
      */
     onEditItem(index: number) {
-        this.slService.startEditing.next(index);
+        this.store.dispatch(new ShoppingListActions.StartEditIngrediet(index));
     }
 }
