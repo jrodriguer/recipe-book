@@ -17,10 +17,7 @@ export class ShoppingListComponent implements OnInit {
     // Equal type data of store
     public ingredients: Observable<{ ingredients: Ingredient[] }>;
 
-    constructor(
-        private slService: ShoppingListService,
-        private store: Store<AppState>,
-    ) {}
+    constructor(private store: Store<AppState>) {}
 
     ngOnInit() {
         // Get ingredients and react (observer) to changes
