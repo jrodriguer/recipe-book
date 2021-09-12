@@ -3,9 +3,8 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Ingredient } from '../../../models/ingredient.model';
-import { AppState } from '../../../models/store.model';
-import { ShoppingListService } from '../../services/shopping-list.service';
 import * as ShoppingListActions from '../../pages/shopping-list/store/shopping-list.actions';
+import * as fromApp from '../../store/app.reducer';
 
 
 @Component({
@@ -17,7 +16,7 @@ export class ShoppingListComponent implements OnInit {
     // Equal type data of store
     public ingredients: Observable<{ ingredients: Ingredient[] }>;
 
-    constructor(private store: Store<AppState>) {}
+    constructor(private store: Store<fromApp.AppState>) {}
 
     ngOnInit() {
         // Get ingredients and react (observer) to changes

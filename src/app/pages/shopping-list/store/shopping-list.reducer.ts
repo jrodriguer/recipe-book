@@ -1,6 +1,13 @@
 import { Ingredient } from '../../../../models/ingredient.model';
-import { State } from '../../../../models/store.model';
 import * as ShoppingListActions from './shopping-list.actions';
+
+
+export interface State {
+    ingredients: Ingredient[];
+    editedIngredient: Ingredient;
+    editedIngredientIndex: number
+}
+
 
 
 const initialState: State = {

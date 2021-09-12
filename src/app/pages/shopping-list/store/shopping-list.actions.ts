@@ -28,7 +28,7 @@ export class UpdateIngredient implements Action {
 }
 
 export class RemoveIngredient implements Action {
-    readonly type = REMOVE_INGREDIENTS;
+    readonly type = REMOVE_INGREDIENTS; 
 }
 
 export class StartEditIngrediet implements Action {

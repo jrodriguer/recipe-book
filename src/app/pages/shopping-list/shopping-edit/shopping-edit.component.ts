@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
 
 import { Ingredient } from '../../../../models/ingredient.model';
 import { AppState } from '../../../../models/store.model';
-import { ShoppingListService } from '../../../services/shopping-list.service';
 import * as ShoppingListActions from '../store/shopping-list.actions';
 @Component({
     selector: 'app-shopping-edit',
