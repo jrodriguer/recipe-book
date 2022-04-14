@@ -18,12 +18,10 @@ export class DataStorageService {
                 'https://ng-project-recipesfood.firebaseio.com/recipes.json',
                 recipes,
             )
-            .subscribe(resp => {
-                console.log(resp);
-            });
+            .subscribe(resp => {});
     }
 
-    fetchRecipes() {
+    fetchRecipes(): any {
         // Interceptor atack in here
         return this.http
             .get<Recipe[]>(

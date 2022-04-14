@@ -1,25 +1,29 @@
 {
+    "compileOnSave": false,
     "compilerOptions": {
-        "target": "ES2017",
-        "lib": ["ES2017"],
-        "module": "commonjs",
-        "outDir": "./lib",
-        "sourceMap": true,
+        "alwaysStrict": true,
+        "declaration": true,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "lib": ["es2017", "dom"],
         "listFiles": false,
         "listEmittedFiles": false,
-        "pretty": true,
-        "traceResolution": false,
-        "declaration": true,
-        "alwaysStrict": true,
-        "noImplicitAny": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        "downlevelIteration": true,
+        "outDir": "./lib",
+        "pretty": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "target": "ES2017",
+        "traceResolution": false,
+        "types": [ "node" ],
         "typeRoots": [
-            "./node_modules/@my-company/ts-build-tools/node_modules/@types",
-            "./node_modules/@types"
+            "node_modules/@types"
         ],
-        "experimentalDecorators": true
     },
     "include": [
         "./src/**/*.ts",

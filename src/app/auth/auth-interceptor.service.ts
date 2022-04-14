@@ -11,7 +11,7 @@ import { Observable } from "rxjs";
 import { take, exhaustMap } from "rxjs/operators";
 
 import { AuthService } from "./auth.service";
-import { AuthResponseData } from "src/models/auth-model.temp";
+import { AuthResponseData } from "../../models/auth-model.temp";
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {

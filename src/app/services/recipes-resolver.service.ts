@@ -22,13 +22,13 @@ export class RecipesResolveService implements Resolve<Recipe[]> {
             Return set of recipes,
             need to load it first.
 
-            or 
+            or
 
-            observable 
+            observable
             that will in the end yield an array of recipes
 
             No subscribe, bacause
-            this Angular feature will subscribe for me to basically 
+            this Angular feature will subscribe for me to basically
             find out once the data is there
         */
 
