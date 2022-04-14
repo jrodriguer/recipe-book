@@ -16,7 +16,7 @@ Project is created with:
 * Using the library rxjs ([master](https://github.com/JulioRodriguezR/recipe-book)) or ngrx ([ngrx](https://github.com/JulioRodriguezR/recipe-book/tree/ngrx)).
 
 ## Key Features
-- Manage your pefil, save or fetch data.
+- Manage your perfil, save or fetch data.
 - Make your own shopping list.
 - Remember your ingredients and quantities.
 
