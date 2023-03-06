@@ -20,7 +20,6 @@ import { AlertComponent } from "./alert/alert.component";
         PlaceholderDirective,
         DropdownDirective,
         CommonModule
-    ],
-    entryComponents: [AlertComponent]
+    ]
 })
 export class SharedModule {}
