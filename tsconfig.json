@@ -1,34 +1,35 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "alwaysStrict": true,
-        "declaration": true,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "lib": ["es2017", "dom"],
-        "listFiles": false,
-        "listEmittedFiles": false,
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "noImplicitAny": false,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "outDir": "./lib",
-        "pretty": true,
-        "removeComments": false,
-        "sourceMap": true,
-        "target": "ES2017",
-        "traceResolution": false,
-        "types": [ "node" ],
-        "typeRoots": [
-            "node_modules/@types"
-        ],
-    },
-    "include": [
-        "./src/**/*.ts",
-        "./typings/**/*.d.ts",
-        "./node_modules/@my-company/ts-build-tools/shared/typings/**/*.d.ts"
-    ],
-    "exclude": ["./node_modules"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+
 }
