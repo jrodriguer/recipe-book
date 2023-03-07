@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {
-    Resolve,
-    ActivatedRouteSnapshot,
-    RouterStateSnapshot,
+  Resolve,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -12,13 +12,13 @@ import { DataStorageService } from './data-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesResolveService implements Resolve<Recipe[]> {
-    constructor(private dataStorageSrvc: DataStorageService) {}
+  constructor(private dataStorageSrvc: DataStorageService) {}
 
-    resolve(
-        route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot,
-    ): Observable<any> {
-        /*
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<any> {
+    /*
             Return set of recipes,
             need to load it first.
 
@@ -32,6 +32,6 @@ export class RecipesResolveService implements Resolve<Recipe[]> {
             find out once the data is there
         */
 
-        return this.dataStorageSrvc.fetchRecipes();
-    }
+    return this.dataStorageSrvc.fetchRecipes();
+  }
 }
