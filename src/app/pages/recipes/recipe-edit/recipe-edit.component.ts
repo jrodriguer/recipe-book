@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import {
-    FormGroup,
-    FormControl,
-    FormArray,
+    UntypedFormGroup,
+    UntypedFormControl,
+    UntypedFormArray,
     Validators,
     AbstractControl
 } from "@angular/forms";
@@ -17,7 +17,7 @@ import { RecipeService } from "../../../services/recipe.service";
 export class RecipeEditComponent implements OnInit {
     public id: number;
     public editMode = false;
-    public recipeForm: FormGroup;
+    public recipeForm: UntypedFormGroup;
 
     constructor(
         private route: ActivatedRoute,
@@ -42,40 +42,27 @@ export class RecipeEditComponent implements OnInit {
     }
 
     onAddIngr() {
-        (<FormArray>this.recipeForm.get("ingredients")).push(
-            new FormGroup({
-                name: new FormControl(null, Validators.required),
-                amount: new FormControl()
+        (<UntypedFormArray>this.recipeForm.get("ingredients")).push(
+            new UntypedFormGroup({
+                name: new UntypedFormControl(null, Validators.required),
+                amount: new UntypedFormControl()
             })
         );
     }
 
-    /**
-     * Get access to the recipe form
-     * and thereby get access to my ingredients.
-     *
-     * @param {number} index
-     * @memberof RecipeEditComponent
-     */
     onDeleteIngr(index: number) {
-        (<FormArray>this.recipeForm.get("ingredients")).removeAt(index);
+        (<UntypedFormArray>this.recipeForm.get("ingredients")).removeAt(index);
     }
 
     onCancel() {
         this.router.navigate(["../"], { relativeTo: this.route });
     }
 
-    /**
-     * Initialice Reactive Form of New recipe.
-     *
-     * @private
-     * @memberof RecipeEditComponent
-     */
     private initForm() {
         let recipeName = "";
         let recipeImgPath = "";
         let recipeDescrip = "";
-        const recipeIngrs = new FormArray([]);
+        const recipeIngrs = new UntypedFormArray([]);
 
         if (this.editMode) {
             const recipe = this.recipeService.getRecipe(this.id);
@@ -85,12 +72,12 @@ export class RecipeEditComponent implements OnInit {
             if (recipe["ingredients"]) {
                 for (const ingredient of recipe.ingredients) {
                     recipeIngrs.push(
-                        new FormGroup({
-                            name: new FormControl(
+                        new UntypedFormGroup({
+                            name: new UntypedFormControl(
                                 ingredient.name,
                                 Validators.required
                             ),
-                            amount: new FormControl(ingredient.amount, [
+                            amount: new UntypedFormControl(ingredient.amount, [
                                 Validators.required,
                                 Validators.pattern(/^[1-9]+[0-9]*$/)
                             ])
@@ -100,18 +87,18 @@ export class RecipeEditComponent implements OnInit {
             }
         }
 
-        this.recipeForm = new FormGroup({
+        this.recipeForm = new UntypedFormGroup({
             // FormGroup => outer layer
 
             // Controls registres
-            name: new FormControl(recipeName, Validators.required),
-            imagePath: new FormControl(recipeImgPath),
-            description: new FormControl(recipeDescrip, Validators.required),
+            name: new UntypedFormControl(recipeName, Validators.required),
+            imagePath: new UntypedFormControl(recipeImgPath),
+            description: new UntypedFormControl(recipeDescrip, Validators.required),
             ingredients: recipeIngrs
         });
     }
 
     getControls(): AbstractControl[] {
-        return (<FormArray>this.recipeForm.get("ingredients")).controls;
+        return (<UntypedFormArray>this.recipeForm.get("ingredients")).controls;
     }
 }
