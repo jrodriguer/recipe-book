@@ -10,8 +10,8 @@ import { RecipeService } from '../../../services/recipe.service';
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
-  recipe: Recipe;
-  id: number;
+  public recipe!: Recipe;
+  public id = 0;
 
   constructor(
     private recipeService: RecipeService,
