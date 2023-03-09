@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Subscription } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import '@dile/dile-hamburger/dile-hamburger.js';
 
 import { DataStorageService } from '../../services/data-storage.service';
@@ -12,8 +12,8 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  private userSub: Subscription;
-  public isAuthenticated: boolean;
+  private destroyed$ = new Subject<void>();
+  public isAuthenticated = false;
 
   constructor(
     private dataStorageSrv: DataStorageService,
@@ -21,9 +21,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.userSub = this.authSrv.user.subscribe((user) => {
-      this.isAuthenticated = !!user; // !user ? false : true
+    this.authSrv.user.pipe(takeUntil(this.destroyed$)).subscribe((user) => {
+      this.isAuthenticated = !!user;
     });
+  }
+
+  ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 
   onLogout() {
@@ -36,9 +41,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onFetchData() {
     this.dataStorageSrv.fetchRecipes().subscribe();
-  }
-
-  ngOnDestroy() {
-    this.userSub.unsubscribe();
   }
 }
