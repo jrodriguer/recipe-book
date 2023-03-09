@@ -11,7 +11,6 @@ import { Observable, Subscription } from 'rxjs';
 import { AuthResponseData } from '../../models/auth-model.temp';
 import { AlertComponent } from '../shared/alert/alert.component';
 import { PlaceholderDirective } from '../shared/placeholder/placeholder.directive';
-
 import { AuthService } from './auth.service';
 
 @Component({
@@ -21,7 +20,6 @@ import { AuthService } from './auth.service';
 export class AuthComponent implements OnDestroy {
   public isLoginMode = true;
   public isLoading = false;
-  public error = null;
   private closeSub: Subscription;
   @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective =
     {} as PlaceholderDirective;
@@ -64,16 +62,11 @@ export class AuthComponent implements OnDestroy {
         this.router.navigate(['/recipes']);
       },
       (errMessg) => {
-        this.error = errMessg;
         this.isLoading = false;
-        this.showErrorAlert(this.error);
+        this.showErrorAlert(errMessg);
       }
     );
     form.reset();
-  }
-
-  onError() {
-    this.error = null;
   }
 
   private showErrorAlert(message: string) {
