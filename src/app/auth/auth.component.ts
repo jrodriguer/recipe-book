@@ -19,19 +19,26 @@ import { AuthService } from './auth.service';
   templateUrl: './auth.component.html'
 })
 export class AuthComponent implements OnDestroy {
-  public isLoginMode = true; // alternate to login and register
+  public isLoginMode = true;
   public isLoading = false;
-  public error: string = null;
-
-  @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
-
+  public error = null;
   private closeSub: Subscription;
+  @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective =
+    {} as PlaceholderDirective;
 
   constructor(
     private authSrv: AuthService,
     private router: Router,
     private componentFactoryResolver: ComponentFactoryResolver
-  ) {}
+  ) {
+    this.closeSub = Subscription.EMPTY;
+  }
+
+  ngOnDestroy() {
+    if (this.closeSub) {
+      this.closeSub.unsubscribe();
+    }
+  }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -67,12 +74,6 @@ export class AuthComponent implements OnDestroy {
 
   onError() {
     this.error = null;
-  }
-
-  ngOnDestroy() {
-    if (this.closeSub) {
-      this.closeSub.unsubscribe();
-    }
   }
 
   private showErrorAlert(message: string) {
