@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { take, exhaustMap } from 'rxjs/operators';
+import { take, exhaustMap, first } from 'rxjs/operators';
 
 import { AuthService } from './auth.service';
 import { AuthResponseData } from '../../models/auth-model.temp';
@@ -27,15 +27,14 @@ export class AuthInterceptorService implements HttpInterceptor {
     
     return this.authSrv.user.pipe(
       take(1),
-
-      // TODO: Channel the two observable --the user and the observable http
-
+      // Channel the two observable --the user and the observable http
       exhaustMap((user: string | null) => {
         if (!user) {
           return next.handle(req);
         }
+        console.log(user);
         const modifiedReq = req.clone({
-          params: new HttpParams().set('auth', user?.token)
+          params: new HttpParams().set('auth', user)
         });
         return next.handle(modifiedReq);
       })

@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  public user = new BehaviorSubject<User>(null); // store and info user state
+  public user = new BehaviorSubject<any>(null); // store and info user state <User>
   public tokenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -27,9 +27,9 @@ export class AuthService {
         }
       )
       .pipe(
-        catchError(this.handleError),
+        catchError(this._handleError),
         tap((resData: any) => {
-          this.handleAuth(
+          this._handleAuth(
             resData.email,
             resData.expiresIn,
             resData.idToken,
@@ -51,9 +51,9 @@ export class AuthService {
         }
       )
       .pipe(
-        catchError(this.handleError),
+        catchError(this._handleError),
         tap((resData: any) => {
-          this.handleAuth(
+          this._handleAuth(
             resData.email,
             resData.expiresIn,
             resData.idToken,
@@ -69,7 +69,7 @@ export class AuthService {
       id: string;
       _token: string;
       _tokenExpirationDate: string;
-    } = JSON.parse(localStorage.getItem('userData'));
+    } = JSON.parse(localStorage.getItem('userData') || '{}');
     if (!userData) {
       return;
     }
@@ -105,22 +105,14 @@ export class AuthService {
     }, expiration);
   }
 
-  /**
-   * Create new user and log in
-   *
-   * @private
-   * @param {string} email
-   * @param {string} userId
-   * @param {string} token
-   * @param {number} expiresIn
-   * @memberof AuthService
-   */
-  private handleAuth(
+  private _handleAuth(
     email: string,
     userId: string,
     token: string,
     expiresIn: number
   ) {
+    // Create new user and log in
+
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
     this.user.next(user);
@@ -128,7 +120,7 @@ export class AuthService {
     localStorage.setItem('userData', JSON.stringify(user));
   }
 
-  private handleError(errRes: HttpErrorResponse): Observable<never> {
+  private _handleError(errRes: HttpErrorResponse): Observable<never> {
     let errorMessg = 'An unknown error ocurred';
     if (!errRes.error || !errRes.error.error) {
       return throwError(errorMessg);

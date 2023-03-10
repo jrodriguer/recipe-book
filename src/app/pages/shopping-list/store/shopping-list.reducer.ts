@@ -31,11 +31,11 @@ export function shoppingListReducer(
         ...state,
         ingredients: [...state.ingredients, action.payload]
       };
-    case ShoppingListActions.ADD_INGREDIENTS:
-      return {
-        ...state,
-        ingredients: [...state.ingredients, action.payload]
-      };
+    // case ShoppingListActions.ADD_INGREDIENTS:
+    //   return {
+    //     ...state,
+    //     ingredients: [...state.ingredients, action.payload]
+    //   };
     case ShoppingListActions.UPDATE_INGREDIENTS:
       const ingredient = state.ingredients[state.editedIngredientIndex];
       const updateIngredient = { ...ingredient, ...action.payload };

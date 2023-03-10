@@ -62,30 +62,38 @@ export class RecipeEditComponent implements OnInit {
     let recipeName = '';
     let recipeImgPath = '';
     let recipeDescrip = '';
-    const recipeIngrs = new FormArray([]);
+    const recipeIngrs = [];
 
     if (this.editMode) {
       const recipe = this.recipeService.getRecipe(this.id);
       recipeName = recipe.name;
       recipeImgPath = recipe.imagePath;
       recipeDescrip = recipe.description;
-      if (recipe['ingredients']) {
-        for (const ingredient of recipe.ingredients) {
-          recipeIngrs.push(
-            new FormGroup<{
-              name: FormControl<string | null>;
-              amount: FormControl<number | null>;
-            }>({
-              name: new FormControl(ingredient.name, Validators.required),
-              amount: new FormControl(ingredient.amount, [
-                Validators.required,
-                Validators.pattern(/^[1-9]+[0-9]*$/)
-              ])
-            })
-          );
+      if (this.editMode) {
+        const recipe = this.recipeService.getRecipe(this.id);
+        recipeName = recipe.name;
+        recipeImgPath = recipe.imagePath;
+        recipeDescrip = recipe.description;
+        if (recipe['ingredients']) {
+          for (const ingredient of recipe.ingredients) {
+            recipeIngrs.push(
+              new FormGroup<{
+                name: FormControl<string | null>;
+                amount: FormControl<number | null>;
+              }>({
+                name: new FormControl(ingredient.name, Validators.required),
+                amount: new FormControl(ingredient.amount, [
+                  Validators.required,
+                  Validators.pattern(/^[1-9]+[0-9]*$/)
+                ])
+              })
+            );
+          }
         }
       }
     }
+
+    recipeIngrs.push(new FormArray([]));
 
     this.recipeForm = new FormGroup({
       // FormGroup => outer layer
@@ -94,7 +102,7 @@ export class RecipeEditComponent implements OnInit {
       name: new FormControl(recipeName, Validators.required),
       imagePath: new FormControl(recipeImgPath),
       description: new FormControl(recipeDescrip, Validators.required),
-      ingredients: recipeIngrs
+      ingredients: new FormArray(recipeIngrs) // fix FormArray<never>[]
     });
   }
 

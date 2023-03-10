@@ -3,8 +3,8 @@ import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 
 import { Recipe } from '../../models/recipe.model';
-import { Ingredient } from '../../models/ingredient.model';
-import * as ShoppingListActions from '../pages/shopping-list/store/shopping-list.actions';
+// import { Ingredient } from '../../models/ingredient.model';
+// import * as ShoppingListActions from '../pages/shopping-list/store/shopping-list.actions';
 import * as fromApp from '../store/app.reducer';
 
 @Injectable({
@@ -29,9 +29,9 @@ export class RecipeService {
     return this.recipes[index];
   }
 
-  addIngredientsToShoppingList(ingredients: Ingredient) {
-    this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
-  }
+  // addIngredientsToShoppingList(ingredients: Ingredient[]) {
+  //   this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+  // }
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
