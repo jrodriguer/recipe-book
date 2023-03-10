@@ -11,17 +11,17 @@ import { SharedModule } from './shared/shared.module';
 import * as fromApp from './store/app.reducer';
 
 @NgModule({
-    declarations: [AppComponent, HeaderComponent],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        AppRoutingModule,
-        StoreModule.forRoot(fromApp.appReducer),
-        SharedModule,
-        CoreModule,
-        StoreModule.forRoot({}, {}),
-    ],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    bootstrap: [AppComponent],
+  declarations: [AppComponent, HeaderComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    StoreModule.forRoot(fromApp.appReducer),
+    SharedModule,
+    CoreModule,
+    StoreModule.forRoot({}, {})
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

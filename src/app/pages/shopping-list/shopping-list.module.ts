@@ -9,12 +9,7 @@ import { ShoppingListRoutingModule } from './shopping-list-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-    declarations: [ShoppingListComponent, ShoppingEditComponent],
-    imports: [
-        SharedModule,
-        RouterModule,
-        FormsModule,
-        ShoppingListRoutingModule,
-    ],
+  declarations: [ShoppingListComponent, ShoppingEditComponent],
+  imports: [SharedModule, RouterModule, FormsModule, ShoppingListRoutingModule]
 })
 export class ShoppingListModule {}

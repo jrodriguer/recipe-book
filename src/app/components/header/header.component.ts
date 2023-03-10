@@ -1,44 +1,44 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
-import { Subscription } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import '@dile/dile-hamburger/dile-hamburger.js';
 
 import { DataStorageService } from '../../services/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-    private userSub: Subscription;
-    public isAuthenticated: boolean;
+  private destroyed$ = new Subject<void>();
+  public isAuthenticated = false;
 
-    constructor(
-        private dataStorageSrv: DataStorageService,
-        private authSrv: AuthService,
-    ) {}
+  constructor(
+    private dataStorageSrv: DataStorageService,
+    private authSrv: AuthService
+  ) {}
 
-    ngOnInit() {
-        this.userSub = this.authSrv.user.subscribe(user => {
-            this.isAuthenticated = !!user; // !user ? false : true
-        });
-    }
+  ngOnInit() {
+    this.authSrv.user.pipe(takeUntil(this.destroyed$)).subscribe((user) => {
+      this.isAuthenticated = !!user;
+    });
+  }
 
-    onLogout() {
-        this.authSrv.logout();
-    }
+  ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
 
-    onSaveData() {
-        this.dataStorageSrv.storageRecipes();
-    }
+  onLogout() {
+    this.authSrv.logout();
+  }
 
-    onFetchData() {
-        this.dataStorageSrv.fetchRecipes().subscribe();
-    }
+  onSaveData() {
+    this.dataStorageSrv.storageRecipes();
+  }
 
-    ngOnDestroy() {
-        this.userSub.unsubscribe();
-    }
+  onFetchData() {
+    this.dataStorageSrv.fetchRecipes().subscribe();
+  }
 }
