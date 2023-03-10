@@ -21,10 +21,9 @@ export class AuthInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<AuthResponseData>> {
     /*
-            Do not configure a continuous subscription.
-            Manage the subscription, give me the last user and cancel
-        */
-    
+      Do not configure a continuous subscription.
+      Manage the subscription, give me the last user and cancel
+    */
     return this.authSrv.user.pipe(
       take(1),
       // Channel the two observable --the user and the observable http
