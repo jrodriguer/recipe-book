@@ -16,7 +16,9 @@
             "outputPath": "dist/my-first-app",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "scr/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
