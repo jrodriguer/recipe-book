@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
 import { Subject, takeUntil } from 'rxjs';
 import '@dile/dile-hamburger/dile-hamburger.js';
 

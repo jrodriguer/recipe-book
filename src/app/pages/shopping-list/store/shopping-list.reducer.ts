@@ -3,7 +3,7 @@ import * as ShoppingListActions from './shopping-list.actions';
 
 export interface State {
   ingredients: Ingredient[];
-  editedIngredient: Ingredient;
+  editedIngredient: Ingredient | null;
   editedIngredientIndex: number;
 }
 
