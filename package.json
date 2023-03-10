@@ -50,7 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "protractor": "~7.0.0",
-    "typescript": "~4.6.4",
+    "typescript": "^4.9.5",
     "eslint": "^8.34.0"
-  },
+  }
 }
