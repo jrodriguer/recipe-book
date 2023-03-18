@@ -26,6 +26,7 @@
     "@ngrx/store": "^15.3.0",
     "bootstrap": "5.0.2",
     "core-js": "^2.6.12",
+    "firebase": "^9.18.0",
     "rxjs": "7.8.0",
     "rxjs-compat": "^6.6.7",
     "zone.js": "^0.11.4"
@@ -39,6 +40,7 @@
     "@types/jasminewd2": "~2.0.10",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
+    "@firebase/auth-types": "^0.5.2-canary.6a0154a",
     "codelyzer": "~6.0.2",
     "eslint": "^8.34.0",
     "jasmine-core": "~3.8.0",
