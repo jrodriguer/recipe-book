@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core.module';
@@ -13,6 +14,7 @@ import * as fromApp from './store/app.reducer';
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
+    NgbModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

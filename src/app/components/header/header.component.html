@@ -1,25 +1,42 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
       <a routerLink="/" class="navbar-brand">Recipe Book</a>
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li *ngIf="isAuthenticated" routerLinkActive="active">
-          <a routerLink="/recipes">Recipes</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarToggler"
+      aria-controls="navbarToggler"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/recipes" aria-current="page"
+            >Recipes</a
+          >
         </li>
-        <li *ngIf="!isAuthenticated" routerLinkActive="active">
-          <a routerLink="/auth">Authenticate</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/auth">Authenticate</a>
         </li>
-        <li routerLinkActive="active">
-          <a routerLink="/shopping-list">Shopping List</a>
+        <li routerLinkActive="active" class="nav-item">
+          <a class="nav-link" routerLink="/shopping-list" aria-current="page"
+            >Shopping List</a
+          >
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="nav-link" style="cursor: pointer" (click)="onLogout()"
+            >Logout</a
+          >
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="isAuthenticated">
-          <a style="cursor: pointer" (click)="onLogout()">Logout</a>
-        </li>
-        <li *ngIf="isAuthenticated" class="dropdown" appDropdown>
+      <ul class="navbar-nav navbar-right">
+        <li class="dropdown" appDropdown>
           <dile-hamburger></dile-hamburger>
           <ul class="dropdown-menu">
             <li>
