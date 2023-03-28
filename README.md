@@ -1,4 +1,16 @@
-# Recipe Book
+<h1 align="center">Recipe Book</h1>
+
+<p align="center">
+  <img src="src/assets/images/burguer.png" alt="burguer-image" width="120px" height="120px"/>
+  <br>
+  <i>Code, food, hunger</i>
+  <br>
+</p>
+
+<p align="center">
+  <a href="https://recipe-book-13023.web.app/"><strong>https://recipe-book-13023.web.app/</strong></a>
+  <br>
+</p>
 
 ## Table of contents
 * [General info](#general-info)
