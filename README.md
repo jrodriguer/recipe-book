@@ -11,9 +11,9 @@ Cookbook and shopping lists website built with [Angular](https://angular.io/).
 
 ## Technologies
 Project is created with:
-* Framework, Angular version: 8.1.3
-* Runtime environment, Node version: 12.19.0
-* Using the library rxjs ([master](https://github.com/JulioRodriguezR/recipe-book)) or ngrx ([ngrx](https://github.com/JulioRodriguezR/recipe-book/tree/ngrx))
+* Framework, Angular version: 15.2.4
+* Runtime environment, Node version: 14.20.0
+* Package Manager: npm 6.14.17
 
 ## Key Features
 - Manage your perfil, save or fetch data.
