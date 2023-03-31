@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import '@dile/dile-hamburger/dile-hamburger.js';
 
 import { DataStorageService } from '../../services/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
