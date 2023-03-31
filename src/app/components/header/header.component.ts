@@ -1,6 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import '@dile/dile-hamburger/dile-hamburger.js';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { DataStorageService } from '../../services/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
@@ -10,24 +9,17 @@ import { AuthService } from '../../auth/auth.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  private destroyed$ = new Subject<void>();
+export class HeaderComponent implements OnInit {
   public isAuthenticated = false;
+  public authenticated$ = new Observable<any>();
 
   constructor(
     private dataStorageSrv: DataStorageService,
     private authSrv: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.authSrv.user.pipe(takeUntil(this.destroyed$)).subscribe((user) => {
-      this.isAuthenticated = !!user;
-    });
-  }
-
-  ngOnDestroy() {
-    this.destroyed$.next();
-    this.destroyed$.complete();
+    this.authenticated$ = this.authSrv.user;
   }
 
   onLogout() {

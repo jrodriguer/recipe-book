@@ -1,53 +1,33 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a routerLink="/" class="navbar-brand">Recipe Book</a>
-    </div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarToggler"
-      aria-controls="navbarToggler"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarToggler">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/recipes" aria-current="page"
-            >Recipes</a
-          >
-        </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="/auth">Authenticate</a>
-        </li>
-        <li routerLinkActive="active" class="nav-item">
-          <a class="nav-link" routerLink="/shopping-list" aria-current="page"
-            >Shopping List</a
-          >
-        </li>
-        <li class="nav-item ml-auto">
-          <a class="nav-link" style="cursor: pointer" (click)="onLogout()"
-            >Logout</a
-          >
-        </li>
-      </ul>
-      <ul class="navbar-nav navbar-right">
-        <li class="dropdown" appDropdown>
-          <dile-hamburger></dile-hamburger>
-          <ul class="dropdown-menu">
-            <li>
-              <a style="cursor: pointer" (click)="onSaveData()">Save Data</a>
-            </li>
-            <li>
-              <a style="cursor: pointer" (click)="onFetchData()">Fetch Data</a>
-            </li>
+<header *ngIf="(authenticated$ | async)" class="p-3 mb-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+          <img src="../../../assets/images/burguer.png" width="30" height="32" alt="burguer-image" >
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a routerLink="/recipes" class="nav-link px-2 link-secondary">Recipes</a></li>
+          <li><a routerLink="/auth" class="nav-link px-2 link-dark">Authenticate</a></li>
+          <li><a routerLink="/shopping-list" class="nav-link px-2 link-dark">Shopping List</a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="dropdown text-end">
+          <a class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 34px);" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" (click)="onSaveData()">Save Data</a></li>
+            <li><a class="dropdown-item" (click)="onFetchData()">Fetch Data</a></li>
+            <li><a class="dropdown-item">Settings</a></li>
+            <li><a class="dropdown-item">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="onLogout()">Sign out</a></li>
           </ul>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </header>
