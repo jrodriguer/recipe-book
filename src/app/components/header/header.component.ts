@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authenticated$ = this.authSrv.user;
+    this.authenticated$ = this.authSrv.user$;
   }
 
   onLogout() {
