@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   public user$ = new BehaviorSubject<User | null>(null); // store and info user state <User>
-  public tokenExpirationTimer: any;
+  public tokenExpirationTimer: number | null = 0;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -100,7 +100,7 @@ export class AuthService {
   }
 
   autoLogout(expiration: number) {
-    this.tokenExpirationTimer = setTimeout(() => {
+    this.tokenExpirationTimer = window.setTimeout(() => {
       this.logout();
     }, expiration);
   }
