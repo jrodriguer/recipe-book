@@ -20,13 +20,8 @@ export class AuthInterceptorService implements HttpInterceptor {
     req: HttpRequest<string>,
     next: HttpHandler
   ): Observable<HttpEvent<AuthResponseData>> {
-    /*
-      Do not configure a continuous subscription.
-      Manage the subscription, give me the last user and cancel
-    */
     return this.authSrv.user$.pipe(
       take(1),
-      // Channel the two observable --the user and the observable http
       switchMap((user) => {
         if (!user) {
           return next.handle(req);
