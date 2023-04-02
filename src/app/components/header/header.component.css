@@ -4,3 +4,12 @@
   margin: 0px;
   transform: translate(0px, 34px);
 }
+
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+
+.me-2 {
+  margin-right: 0.5rem!important;
+}

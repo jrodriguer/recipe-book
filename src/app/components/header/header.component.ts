@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { User } from '../../../models/user.model';
 import { DataStorageService } from '../../services/data-storage.service';
 import { AuthService } from '../../auth/auth.service';
 
@@ -10,8 +11,7 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public isAuthenticated = false;
-  public authenticated$ = new Observable<any>();
+  public authenticated$ = new Observable<User | null>();
 
   constructor(
     private dataStorageSrv: DataStorageService,
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authenticated$ = this.authSrv.user;
+    this.authenticated$ = this.authSrv.user$;
   }
 
   onLogout() {
