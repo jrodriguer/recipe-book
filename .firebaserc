@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "recipe-book-13023"
-  }
+    "default": "recipe-book-13023",
+    "dev": "recipe-book-13023",
+    "production": "recipe-book-13023"
+  },
+  "targets": {},
+  "etags": {}
 }
