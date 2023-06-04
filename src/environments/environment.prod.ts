@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   useEmulators: false,
-  firebaseConfig: {
+  firebase: {
     apiKey: 'AIzaSyAUd8Fsm2ksLXrLtFWjB_fqCsTdDHABRvY',
     authDomain: 'recipe-book-13023.firebaseapp.com',
     projectId: 'recipe-book-13023',
