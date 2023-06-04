@@ -5,6 +5,7 @@
   },
   "hosting": [
     {
+      "target": "recipe-book",
       "public": "public",
       "ignore": [
         "firebase.json",
@@ -17,11 +18,6 @@
           "destination": "/index.html"
         }
       ]
-    },
-    {
-      "target": "recipe-book",
-      "source": ".",
-      "frameworksBackend": {}
     }
   ],
   "emulators": {
@@ -35,6 +31,9 @@
       "enabled": true,
       "port": 9099
     },
-    "singleProjectMode": true
+    "singleProjectMode": true,
+    "auth": {
+      "port": 9099
+    }
   }
 }
