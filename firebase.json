@@ -28,10 +28,8 @@
       "port": 5000
     },
     "ui": {
-      "enabled": true,
-      "port": 9099
+      "enabled": true
     },
-    "singleProjectMode": true,
     "auth": {
       "port": 9099
     }
